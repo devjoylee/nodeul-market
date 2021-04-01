@@ -1,7 +1,13 @@
 import React from 'react';
+import './styles/style.css';
+import { Header } from './components';
 
 function App() {
-  return <h1>노들마켓 App</h1>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default App;

@@ -1,0 +1,21 @@
+/* @import './reset.css'; */
+
+.header {
+  position: relative;
+  border-bottom: 1px solid #888;
+}
+
+.header__logo {
+  text-align: center;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: center;
+}
+
+.header__cartbtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
