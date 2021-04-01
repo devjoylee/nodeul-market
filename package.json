@@ -1,0 +1,26 @@
+{
+  "name": "nodeul-market",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Joy Lee",
+  "license": "MIT",
+  "devDependencies": {
+    "@snowpack/plugin-typescript": "^1.2.1",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/snowpack-env": "^2.3.3",
+    "snowpack": "^3.2.2",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
