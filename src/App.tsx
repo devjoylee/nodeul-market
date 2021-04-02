@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/style.css';
-import { Header, ItemList, Footer } from './components';
+import { Header, ItemList, Footer, Cart } from './components';
 
 export interface iItemDetail {
   id: number;
@@ -71,6 +71,7 @@ function App() {
       <Header />
       <ItemList items={items} />
       <Footer />
+      <Cart />
     </>
   );
 }
