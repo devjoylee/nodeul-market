@@ -1,6 +1,10 @@
 import React from 'react';
 
-export function Header() {
+interface HeaderProps {
+  toggleCart: () => void;
+}
+
+export function Header({ toggleCart }: HeaderProps) {
   return (
     <header className="header">
       <h1 className="header__logo">노들마켓</h1>
@@ -11,7 +15,9 @@ export function Header() {
         <li>🍎</li>
         <li>🥔</li>
       </ul>
-      <button className="header__cartbtn">CART</button>
+      <button className="header__cartbtn" onClick={() => toggleCart()}>
+        CART
+      </button>
     </header>
   );
 }

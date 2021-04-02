@@ -1,12 +1,18 @@
 import React from 'react';
 
-export function Cart() {
+interface CartProps {
+  openCart: boolean;
+  toggleCart: () => void;
+}
+
+export function Cart({ openCart, toggleCart }: CartProps) {
   return (
-    <div className="cart cart-open">
+    <div className={openCart ? 'cart cart-open' : 'cart'}>
       <aside className="cart__drawer">
         <h1>My Cart</h1>
+        <button onClick={() => toggleCart()}>X</button>
       </aside>
-      <div className="cart__overlay"></div>
+      <div className="cart__overlay" onClick={() => toggleCart()}></div>
     </div>
   );
 }
