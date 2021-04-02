@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/style.css';
-import { Header, ItemList } from './components';
+import { Header, ItemList, Footer } from './components';
 
 export interface iItemDetail {
   id: number;
@@ -67,10 +67,11 @@ function App() {
   ];
 
   return (
-    <div>
+    <>
       <Header />
       <ItemList items={items} />
-    </div>
+      <Footer />
+    </>
   );
 }
 

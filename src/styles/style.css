@@ -89,3 +89,10 @@
   height: 280px;
   object-fit: cover;
 }
+
+/* footer */
+.footer {
+  background: #e6e6e6;
+  text-align: center;
+  padding: 50px 0;
+}
