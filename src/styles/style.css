@@ -117,6 +117,8 @@
   position: fixed;
   right: 0;
   top: 0;
+  padding: 15px;
+  box-sizing: border-box;
   background: #fff;
   transform: translateX(450px);
   transition: transform 0.3s;
@@ -131,4 +133,30 @@
 .cart-open .cart__drawer {
   transform: translateX(0);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.cart__closebtn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.cart-item {
+  padding: 15px;
+  border-bottom: 1px solid #888;
+}
+
+.cart-item__info,
+.cart-item__btn {
+  display: flex;
+}
+
+.cart-item__info > div {
+  flex: 1;
+}
+
+.cart-item__info img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
 }

@@ -15,18 +15,36 @@ export interface iItemDetail {
 
 function App() {
   const [openCart, setOpenCart] = useState(false);
+  const [itemInCart, setItemInCart] = useState([] as iItemDetail[]);
+  console.log(itemInCart);
 
-  const handleToggleCart = () => {
-    setOpenCart(!openCart);
-    console.log(openCart);
+  const handleToggleCart = () => setOpenCart(!openCart);
+
+  const handleAddToCart = (clickedItem: iItemDetail) => {
+    setItemInCart((cartItems) => {
+      // 1. Is the item already added in the cart?
+      const isItemInCart = cartItems.find((item) => item.id === clickedItem.id);
+
+      if (isItemInCart) {
+        alert('장바구니에 담은 상품입니다😋');
+        return [...cartItems];
+      }
+
+      // First time the item is added
+      return [...cartItems, { ...clickedItem, amount: 1 }];
+    });
   };
 
   return (
     <>
       <Header toggleCart={handleToggleCart} />
-      <ItemList items={items} />
+      <ItemList items={items} addToCart={handleAddToCart} />
       <Footer />
-      <Cart openCart={openCart} toggleCart={handleToggleCart} />
+      <Cart
+        openCart={openCart}
+        toggleCart={handleToggleCart}
+        itemInCart={itemInCart}
+      />
     </>
   );
 }

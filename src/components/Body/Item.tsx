@@ -3,9 +3,10 @@ import type { iItemDetail } from '../../App';
 
 interface ItemProps {
   item: iItemDetail;
+  addToCart: (clickedItem: iItemDetail) => void;
 }
 
-export function Item({ item }: ItemProps) {
+export function Item({ item, addToCart }: ItemProps) {
   return (
     <div className="item-wrapper grid-lg grid-md grid-sm">
       <div className="item">
@@ -19,6 +20,9 @@ export function Item({ item }: ItemProps) {
           <p>{item.price}원</p>
           <p>{item.description}</p>
         </div>
+        <button className="item__addbtn" onClick={() => addToCart(item)}>
+          장바구니 추가
+        </button>
       </div>
     </div>
   );

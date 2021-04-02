@@ -5,14 +5,15 @@ import { Item } from './Item';
 
 interface ItemListProps {
   items: iItemDetail[];
+  addToCart: (clickedItem: iItemDetail) => void;
 }
 
-export function ItemList({ items }: ItemListProps) {
+export function ItemList({ items, addToCart }: ItemListProps) {
   return (
     <Container margin>
       <div className="item-list">
         {items.map((item) => (
-          <Item key={item.id} item={item} />
+          <Item key={item.id} item={item} addToCart={addToCart} />
         ))}
       </div>
     </Container>
