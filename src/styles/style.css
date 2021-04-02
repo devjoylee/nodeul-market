@@ -1,5 +1,6 @@
 /* @import './reset.css'; */
 
+/* header */
 .header {
   position: relative;
   border-bottom: 1px solid #888;
@@ -18,4 +19,13 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+
+/* main body */
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.item-container {
 }
