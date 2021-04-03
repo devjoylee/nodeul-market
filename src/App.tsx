@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './styles/App.css';
 import { items } from './data';
-import { Header, ItemList, Footer, Cart } from './components';
+import { Header, Inventory, Footer, Cart } from './components';
 
 export interface iItemDetail {
   id: number;
@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <Header toggleCart={handleToggleCart} />
-      <ItemList items={items} addToCart={handleAddToCart} />
+      <Inventory items={items} addToCart={handleAddToCart} />
       <Footer />
       <Cart
         openCart={openCart}

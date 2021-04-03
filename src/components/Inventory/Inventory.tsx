@@ -3,19 +3,21 @@ import { Container } from '../Container';
 import type { iItemDetail } from '../../App';
 import { Item } from './Item';
 
-interface ItemListProps {
+interface InventoryProps {
   items: iItemDetail[];
   addToCart: (clickedItem: iItemDetail) => void;
 }
 
-export function ItemList({ items, addToCart }: ItemListProps) {
+export function Inventory({ items, addToCart }: InventoryProps) {
   return (
-    <Container margin>
-      <div className="item-list">
-        {items.map((item) => (
-          <Item key={item.id} item={item} addToCart={addToCart} />
-        ))}
-      </div>
-    </Container>
+    <main className="inventory">
+      <Container margin>
+        <div className="item-list">
+          {items.map((item) => (
+            <Item key={item.id} item={item} addToCart={addToCart} />
+          ))}
+        </div>
+      </Container>
+    </main>
   );
 }
