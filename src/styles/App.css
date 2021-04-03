@@ -1,3 +1,8 @@
+:root {
+  --main-color: #f1c358;
+  /* --main-color: #f2be71; */
+}
+
 @font-face {
   font-family: 'LotteMartHappy';
   font-style: normal;
@@ -8,9 +13,10 @@
       format('woff');
 }
 
+html,
 body {
-  font-family: 'LotteMartHappy', sans-serif;
   font-size: 16px;
+  font-family: 'LotteMartHappy', sans-serif;
 }
 
 /* header */
@@ -29,6 +35,8 @@ body {
   font-size: 45px;
   font-weight: 900;
   margin-bottom: 30px;
+  color: var(--main-color);
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .header__menu {
@@ -130,6 +138,10 @@ body {
   background: #e6e6e6;
   text-align: center;
   padding: 50px 0;
+}
+
+.footer p {
+  opacity: 0.2;
 }
 
 /* cart */
