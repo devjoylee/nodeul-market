@@ -129,3 +129,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+button {
+  outline: none;
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}

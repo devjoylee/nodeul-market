@@ -1,22 +1,59 @@
+@font-face {
+  font-family: 'LotteMartHappy';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff2')
+      format('woff2'),
+    url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff')
+      format('woff');
+}
+
+body {
+  font-family: 'LotteMartHappy', sans-serif;
+  font-size: 16px;
+}
+
 /* header */
 .header {
   position: relative;
-  border-bottom: 1px solid #888;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 40px 0;
+  border-bottom: 1px solid #dfdfdf;
+  background-image: url('https://t4.ftcdn.net/jpg/02/17/71/69/360_F_217716920_z6weIfcrxJXfopSs8DGx5tMW9kSfROVH.jpg');
 }
 
 .header__logo {
-  text-align: center;
+  font-size: 45px;
+  font-weight: 900;
+  margin-bottom: 30px;
 }
 
 .header__menu {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  width: 25%;
+}
+
+.header__menu li {
+  font-size: 26px;
+  cursor: pointer;
 }
 
 .header__cartbtn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 30%;
+  right: 15%;
+  font-size: 70px;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.header__cartbtn:hover {
+  opacity: 0.4;
 }
 
 /* main body */

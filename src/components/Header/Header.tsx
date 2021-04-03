@@ -1,4 +1,5 @@
 import React from 'react';
+import { TiShoppingCart } from 'react-icons/ti';
 
 interface HeaderProps {
   toggleCart: () => void;
@@ -16,7 +17,7 @@ export function Header({ toggleCart }: HeaderProps) {
         <li>🥔</li>
       </ul>
       <button className="header__cartbtn" onClick={() => toggleCart()}>
-        CART
+        <TiShoppingCart />
       </button>
     </header>
   );
