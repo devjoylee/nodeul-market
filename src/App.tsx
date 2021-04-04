@@ -31,7 +31,13 @@ function App() {
       }
 
       // First time the item is added
-      return [...cartItems, { ...clickedItem, amount: 1 }];
+      return [...cartItems, { ...clickedItem }];
+    });
+  };
+
+  const handleRemoveFromCart = (id: number) => {
+    setItemInCart((cartItems) => {
+      return cartItems.filter((item) => item.id !== id);
     });
   };
 
@@ -44,6 +50,7 @@ function App() {
         openCart={openCart}
         toggleCart={handleToggleCart}
         itemInCart={itemInCart}
+        removeFromCart={handleRemoveFromCart}
       />
     </>
   );

@@ -7,9 +7,15 @@ interface CartProps {
   openCart: boolean;
   itemInCart: iItemDetail[];
   toggleCart: () => void;
+  removeFromCart: (id: number) => void;
 }
 
-export function Cart({ openCart, toggleCart, itemInCart }: CartProps) {
+export function Cart({
+  openCart,
+  toggleCart,
+  itemInCart,
+  removeFromCart,
+}: CartProps) {
   return (
     <div className={openCart ? 'cart cart-open' : 'cart'}>
       <aside className="cart__drawer">
@@ -24,7 +30,13 @@ export function Cart({ openCart, toggleCart, itemInCart }: CartProps) {
             <p>장바구니가 비어있어요😥</p>
           ) : (
             // 장바구니 has items
-            itemInCart.map((item) => <CartItem key={item.id} item={item} />)
+            itemInCart.map((item) => (
+              <CartItem
+                key={item.id}
+                item={item}
+                removeFromCart={removeFromCart}
+              />
+            ))
           )}
         </div>
       </aside>
