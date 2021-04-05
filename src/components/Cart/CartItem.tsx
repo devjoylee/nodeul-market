@@ -10,13 +10,21 @@ interface CartItemProps {
 export function CartItem({ item, removeFromCart }: CartItemProps) {
   const [amount, setAmount] = useState(1);
 
+  // 버튼 클릭 시, 아이템 개수 감소 -> 최소 수량 0
   const decreaseAmount = () => {
-    if (amount <= 0) return;
-    setAmount(amount - 1);
+    if (amount <= 0) {
+      return;
+    } else {
+      setAmount(amount - 1);
+    }
   };
 
+  // 버튼 클릭 시, 아이템 개수 증가 -> 최대 수량 (아이템 재고)
   const increaseAmount = () => {
-    if (amount >= item.amount) return;
+    if (amount >= item.amount) {
+      alert(`구매 가능 수량을 확인해주세요😥 (현재 재고: ${item.amount}개)`);
+      return;
+    }
     setAmount(amount + 1);
   };
 

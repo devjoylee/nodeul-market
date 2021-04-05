@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './styles/App.css';
 import { items } from './data';
-import { Header, Inventory, Footer, Cart } from './components';
+import { Header, Inventory, Footer, Cart, NewItemModal } from './components';
 
 export interface iItemDetail {
   id: number;
@@ -15,11 +15,14 @@ export interface iItemDetail {
 
 function App() {
   const [openCart, setOpenCart] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+
   const [itemInCart, setItemInCart] = useState([] as iItemDetail[]);
-  console.log(itemInCart);
-
   const handleToggleCart = () => setOpenCart(!openCart);
+  const handleToggleModal = () => setOpenModal(!openModal);
 
+  // 장바구니로 추가
+  // 버튼 클릭 시, 장바구니에 있으면 추가x 없으면 추가
   const handleAddToCart = (clickedItem: iItemDetail) => {
     setItemInCart((cartItems) => {
       // 1. Is the item already added in the cart?
@@ -35,15 +38,18 @@ function App() {
     });
   };
 
+  // 장바구니에서 제거
   const handleRemoveFromCart = (id: number) => {
-    setItemInCart((cartItems) => {
-      return cartItems.filter((item) => item.id !== id);
-    });
+    if (confirm('선택한 상품을 장바구니에서 삭제할까요?')) {
+      setItemInCart((cartItems) => {
+        return cartItems.filter((item) => item.id !== id);
+      });
+    }
   };
 
   return (
     <>
-      <Header toggleCart={handleToggleCart} />
+      <Header toggleCart={handleToggleCart} toggleModal={handleToggleModal} />
       <Inventory items={items} addToCart={handleAddToCart} />
       <Footer />
       <Cart
@@ -52,6 +58,7 @@ function App() {
         itemInCart={itemInCart}
         removeFromCart={handleRemoveFromCart}
       />
+      <NewItemModal openModal={openModal} toggleModal={handleToggleModal} />
     </>
   );
 }
