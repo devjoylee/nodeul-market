@@ -328,3 +328,17 @@ body {
 .cart-btn:first-child {
   margin-right: 10px;
 }
+
+/* new item modal */
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.4);
+}
