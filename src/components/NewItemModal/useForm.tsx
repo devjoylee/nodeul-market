@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 
 export const useForm = () => {
-  const [values, setValues] = useState({
+  const initialValues = {
     id: Date.now(),
     name: '',
     category: '',
-    amount: '',
-    price: '',
+    amount: 0,
+    price: 0,
+    image: '',
     description: '',
-  });
+  };
+
+  const [values, setValues] = useState(initialValues);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,7 +25,7 @@ export const useForm = () => {
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(values);
+    setValues(initialValues);
   };
 
   return { values, handleChange, handleSubmit };

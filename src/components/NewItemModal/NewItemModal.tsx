@@ -1,13 +1,30 @@
 import React from 'react';
+import type { iItemDetail } from 'src/App';
 import { useForm } from './useForm';
 
 interface NewItemModalProps {
   openModal: boolean;
   toggleModal: () => void;
+  newItem: (newItem: iItemDetail) => void;
 }
 
-export function NewItemModal({ openModal, toggleModal }: NewItemModalProps) {
+export function NewItemModal({
+  openModal,
+  toggleModal,
+  newItem,
+}: NewItemModalProps) {
   const { values, handleChange, handleSubmit } = useForm();
+
+  // 아이템 추가 버튼 클릭 시, 모달 닫히고 아이템 등록
+  const addToInventory = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    if (values.name) {
+      handleSubmit(e);
+      newItem(values);
+      toggleModal();
+    }
+  };
 
   return (
     <>
@@ -24,6 +41,7 @@ export function NewItemModal({ openModal, toggleModal }: NewItemModalProps) {
                   name="name"
                   value={values.name}
                   onChange={handleChange}
+                  placeholder="상품명"
                 />
               </div>
               <div className="new-item-info">
@@ -34,6 +52,7 @@ export function NewItemModal({ openModal, toggleModal }: NewItemModalProps) {
                   name="category"
                   value={values.category}
                   onChange={handleChange}
+                  placeholder="카테고리"
                 />
               </div>
               <div className="new-item-info">
@@ -54,6 +73,7 @@ export function NewItemModal({ openModal, toggleModal }: NewItemModalProps) {
                   name="price"
                   value={values.price}
                   onChange={handleChange}
+                  placeholder="가격 입력(선택사항)"
                 />
               </div>
               <div className="new-item-info">
@@ -64,14 +84,14 @@ export function NewItemModal({ openModal, toggleModal }: NewItemModalProps) {
                   name="description"
                   value={values.description}
                   onChange={handleChange}
+                  placeholder="내용을 입력해주세요"
                 />
               </div>
               <button
                 type="submit"
                 className="submit"
                 onClick={(e) => {
-                  handleSubmit(e);
-                  toggleModal();
+                  addToInventory(e);
                 }}
               >
                 아이템 추가
