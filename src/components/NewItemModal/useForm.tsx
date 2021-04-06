@@ -7,7 +7,8 @@ export const useForm = () => {
 		category: "",
 		amount: 0,
 		price: 0,
-		image: "",
+		image:
+			"http://autosdutriomphe.fr/wp-content/uploads/2018/04/default-image.png",
 		description: "",
 	};
 

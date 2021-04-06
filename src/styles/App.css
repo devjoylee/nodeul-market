@@ -116,12 +116,12 @@ body {
 	font-family: var(--main-font);
 	font-weight: 700;
 	background: var(--main-color);
-	border-radius: 5px;
 	width: 130px;
+	height: 40px;
 	font-size: 18px;
 	padding: 7px 0;
 	opacity: 0.9;
-	color: #222;
+	color: #1f1a37;
 }
 
 .header__btns button:first-child {
@@ -141,7 +141,7 @@ body {
 .inventory {
 	padding: 30px 0;
 	flex: 1;
-	background: #fffcf7;
+	/* background: #fffcf7; */
 }
 
 .inventory-empty {
@@ -171,11 +171,17 @@ body {
 	font-size: 18px;
 	font-weight: 700;
 	transition: all 0.2s ease-in-out;
+	display: flex;
+	align-items: center;
 }
 
 .inventory-empty .addbtn:hover {
 	background: var(--main-color);
 	color: #fff;
+}
+
+.inventory-empty .addbtn svg {
+	margin-right: 3px;
 }
 
 .item-list {
@@ -269,7 +275,7 @@ body {
 	box-sizing: border-box;
 	background: #fff;
 	transform: translateX(450px);
-	transition: transform 0.3s;
+	transition: transform 0.3s ease;
 	z-index: -1;
 
 	display: flex;
@@ -401,6 +407,16 @@ body {
 	margin-right: 10px;
 }
 
+@media (max-width: 768px) {
+	.cart__drawer {
+		width: 100%;
+		opacity: 0;
+	}
+	.cart-open .cart__drawer {
+		opacity: 1;
+	}
+}
+
 /* new item modal */
 .modal {
 	position: relative;
@@ -411,7 +427,7 @@ body {
 }
 
 .modal__content {
-	width: 50%;
+	width: 60%;
 	height: 500px;
 	position: fixed;
 	top: 50%;
@@ -493,6 +509,19 @@ body {
 .new-item .submit-btn {
 	position: absolute;
 	bottom: 0;
+}
+
+@media (max-width: 991px) {
+	.modal__content {
+		width: 80%;
+	}
+}
+
+@media (max-width: 768px) {
+	.modal__content {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .overlay {
