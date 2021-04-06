@@ -38,7 +38,7 @@ export function CartItem({ item, removeFromCart }: CartItemProps) {
 					<span className="category">{item.category}</span>
 					<span className="amount">Current stock : {item.amount}</span>
 					<p className="price">
-						{item.price * amount}원 <span>(개당 {item.price}원)</span>
+						￦{item.price * amount} <span>(￦{item.price} per item)</span>
 					</p>
 					<div className="amount-controller">
 						<button onClick={() => decreaseAmount()}>-</button>
@@ -57,11 +57,11 @@ export function CartItem({ item, removeFromCart }: CartItemProps) {
 					onClick={() => removeFromCart(item.id)}
 				>
 					<RiDeleteBin6Line />
-					삭제할래요
+					Delete this
 				</button>
 				<button className="cart-btn btn" id="buy-btn">
 					<RiHeartAddFill />
-					구매할래요
+					Buy this
 				</button>
 			</div>
 		</section>

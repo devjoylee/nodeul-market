@@ -53,7 +53,11 @@ function App() {
 	return (
 		<>
 			<Header toggleCart={handleToggleCart} toggleModal={handleToggleModal} />
-			<Inventory inventoryItems={inventoryItems} addToCart={handleAddToCart} />
+			<Inventory
+				inventoryItems={inventoryItems}
+				addToCart={handleAddToCart}
+				toggleModal={handleToggleModal}
+			/>
 			<Footer />
 			<Cart
 				openCart={openCart}

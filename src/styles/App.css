@@ -1,18 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700;800;900&display=swap");
+
 :root {
 	--main-color: #f1c358;
+	--main-font: "Nunito", sans-serif;
 	--border: 1px solid #e5e5e5;
 	--border-dashed: 5px dashed #f3f3f3;
 	/* --main-color: #f2be71; */
-}
-
-@font-face {
-	font-family: "LotteMartHappy";
-	font-style: normal;
-	font-weight: 400;
-	src: url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff2")
-			format("woff2"),
-		url("//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff")
-			format("woff");
 }
 
 /* common */
@@ -26,7 +19,8 @@
 
 body {
 	font-size: 16px;
-	font-family: "LotteMartHappy", sans-serif;
+	font-family: var(--main-font);
+	font-weight: 400;
 	box-sizing: border-box;
 }
 
@@ -36,6 +30,12 @@ body {
 	height: 100vh;
 }
 
+.container {
+	margin: 0 auto;
+	max-width: 1000px;
+	height: 100%;
+}
+
 .btn {
 	display: block;
 	width: 100%;
@@ -43,7 +43,8 @@ body {
 	color: #6e6e6e;
 	background-color: #e7e8ea;
 	font-size: 16px;
-	font-family: "LotteMartHappy", sans-serif;
+	font-family: var(--main-font);
+	font-weight: 700;
 	text-align: center;
 	transition: all 0.1s ease-in-out;
 	border: var(--border);
@@ -80,16 +81,15 @@ body {
 	background-image: url("https://t4.ftcdn.net/jpg/02/17/71/69/360_F_217716920_z6weIfcrxJXfopSs8DGx5tMW9kSfROVH.jpg");
 }
 
-.header > div {
+.header-top {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	justify-content: space-between;
 }
 
 .header__logo {
 	font-size: 40px;
-	font-weight: 900;
-	margin-bottom: 30px;
+	font-weight: 800;
+	letter-spacing: -1px;
 	color: var(--main-color);
 	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
 }
@@ -106,17 +106,15 @@ body {
 }
 
 .header__btns {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 15%;
+	display: flex;
 }
 
 .header__btns button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: "LotteMartHappy", sans-serif;
+	font-family: var(--main-font);
+	font-weight: 700;
 	background: var(--main-color);
 	border-radius: 5px;
 	width: 130px;
@@ -127,7 +125,7 @@ body {
 }
 
 .header__btns button:first-child {
-	margin-bottom: 10px;
+	margin-right: 10px;
 }
 
 .header__btns button svg {
@@ -143,11 +141,41 @@ body {
 .inventory {
 	padding: 30px 0;
 	flex: 1;
+	background: #fffcf7;
 }
 
-.container {
-	margin: 0 auto;
-	max-width: 1000px;
+.inventory-empty {
+	height: 100%;
+	border: var(--border-dashed);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.inventory-empty p {
+	text-align: center;
+	line-height: 1.5;
+	font-size: 20px;
+	font-weight: 600;
+	color: #828282;
+	margin-bottom: 40px;
+}
+
+.inventory-empty .addbtn {
+	border: 2px dashed var(--main-color);
+	color: var(--main-color);
+	background: transparent;
+	padding: 10px 15px;
+	font-family: var(--main-font);
+	font-size: 18px;
+	font-weight: 700;
+	transition: all 0.2s ease-in-out;
+}
+
+.inventory-empty .addbtn:hover {
+	background: var(--main-color);
+	color: #fff;
 }
 
 .item-list {
@@ -228,7 +256,7 @@ body {
 
 /* cart */
 .cart {
-	z-index: 20;
+	/* z-index: -1; */
 }
 
 .cart__drawer {
@@ -242,7 +270,7 @@ body {
 	background: #fff;
 	transform: translateX(450px);
 	transition: transform 0.3s;
-	z-index: 21;
+	z-index: -1;
 
 	display: flex;
 	flex-direction: column;
@@ -282,6 +310,7 @@ body {
 .cart-open .cart__drawer {
 	transform: translateX(0);
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	z-index: 3;
 }
 
 .cart__closebtn {
@@ -316,6 +345,7 @@ body {
 	margin-top: auto;
 	text-align: right;
 	font-size: 26px;
+	font-weight: 600;
 	color: var(--main-color);
 }
 
@@ -377,7 +407,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 10;
+	/* z-index: -1; */
 }
 
 .modal__content {
@@ -394,11 +424,12 @@ body {
 	transition: opacity 0.1s;
 	display: flex;
 	flex-direction: column;
-	z-index: 11;
+	z-index: -1;
 }
 
 .modal-open .modal__content {
 	opacity: 1;
+	z-index: 2;
 	/* transform: translate(-50%, -50%); */
 }
 
@@ -428,6 +459,7 @@ body {
 	display: inline-block;
 	width: 20%;
 	text-align: center;
+	font-weight: 700;
 	color: #444;
 }
 
@@ -436,7 +468,7 @@ body {
 	padding: 7px;
 	background: transparent;
 	border: 1px solid #ccc;
-	font-family: "LotteMartHappy", sans-serif;
+	font-family: var(--main-font);
 }
 
 .new-item-info .form-input:focus {
@@ -479,4 +511,5 @@ body {
 .modal-open .overlay {
 	visibility: visible;
 	opacity: 1;
+	z-index: 1;
 }

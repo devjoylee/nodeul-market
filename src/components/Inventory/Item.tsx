@@ -23,7 +23,7 @@ export function Item({ item, addToCart }: ItemProps) {
 				</div>
 				<button className="item__addbtn btn" onClick={() => addToCart(item)}>
 					<MdAddShoppingCart />
-					장바구니 추가
+					ADD TO CART
 				</button>
 			</div>
 		</div>
