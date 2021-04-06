@@ -1,6 +1,8 @@
 import React from "react";
 import type { iItemDetail } from "../../App";
 import { useForm } from "./useForm";
+import { VscClose } from "react-icons/vsc";
+import { IoBagAddOutline } from "react-icons/io5";
 
 interface NewItemModalProps {
 	openModal: boolean;
@@ -40,88 +42,95 @@ export function NewItemModal({
 
 	return (
 		<>
-			{openModal && (
-				<div className="modal">
-					<section className="modal__content">
-						<button onClick={() => toggleModal()}>닫기</button>
-						<form className="new-item">
-							<div className="new-item-info">
-								<label htmlFor="name">상품명</label>
-								<input
-									type="text"
-									id="name"
-									name="name"
-									value={values.name}
-									onChange={handleChange}
-									placeholder="상품명"
-								/>
-							</div>
-							<div className="new-item-info">
-								<label htmlFor="image">이미지</label>
-								<input
-									type="file"
-									id="image"
-									name="image"
-									onChange={uploadImage}
-								/>
-							</div>
-							<div className="new-item-info">
-								<label htmlFor="category">카테고리</label>
-								<input
-									type="text"
-									id="category"
-									name="category"
-									value={values.category}
-									onChange={handleChange}
-									placeholder="카테고리"
-								/>
-							</div>
-							<div className="new-item-info">
-								<label htmlFor="amount">수량</label>
-								<input
-									type="text"
-									id="amount"
-									name="amount"
-									value={values.amount}
-									onChange={handleChange}
-								/>
-							</div>
-							<div className="new-item-info">
-								<label htmlFor="price">가격</label>
-								<input
-									type="text"
-									id="price"
-									name="price"
-									value={values.price}
-									onChange={handleChange}
-									placeholder="가격 입력(선택사항)"
-								/>
-							</div>
-							<div className="new-item-info">
-								<label htmlFor="description">상세내용</label>
-								<textarea
-									rows={5}
-									id="description"
-									name="description"
-									value={values.description}
-									onChange={handleChange}
-									placeholder="내용을 입력해주세요"
-								/>
-							</div>
-							<button
-								type="submit"
-								className="submit"
-								onClick={(e) => {
-									addToInventory(e);
-								}}
-							>
-								아이템 추가
-							</button>
-						</form>
-					</section>
-					<div className="modal__overlay"></div>
-				</div>
-			)}
+			{/* <div className="modal modal-open"> */}
+			<div className={openModal ? "modal modal-open" : "modal"}>
+				<section className="modal__content">
+					<button className="modal__closebtn" onClick={() => toggleModal()}>
+						<VscClose />
+					</button>
+					<form className="new-item">
+						<div className="new-item-info">
+							<label htmlFor="name">Title</label>
+							<input
+								type="text"
+								id="name"
+								name="name"
+								value={values.name}
+								onChange={handleChange}
+								placeholder="Title / Item Name"
+								className="form-input"
+							/>
+						</div>
+						<div className="new-item-info">
+							<label htmlFor="category">Category</label>
+							<input
+								type="text"
+								id="category"
+								name="category"
+								value={values.category}
+								onChange={handleChange}
+								placeholder="Category"
+								className="form-input"
+							/>
+						</div>
+						<div className="new-item-info">
+							<label htmlFor="amount">Amount</label>
+							<input
+								type="text"
+								id="amount"
+								name="amount"
+								value={values.amount}
+								onChange={handleChange}
+								placeholder="How many do you want to sell?"
+								className="form-input"
+							/>
+						</div>
+						<div className="new-item-info">
+							<label htmlFor="price">Price</label>
+							<input
+								type="text"
+								id="price"
+								name="price"
+								value={values.price}
+								onChange={handleChange}
+								placeholder="How much do you charge for this item?"
+								className="form-input"
+							/>
+						</div>
+						<div className="new-item-info">
+							<label htmlFor="description">Description</label>
+							<textarea
+								id="description"
+								name="description"
+								value={values.description}
+								onChange={handleChange}
+								placeholder="Please provide the details of your item."
+								className="form-input"
+							/>
+						</div>
+						<div className="new-item-info">
+							<label htmlFor="image">Image</label>
+							<input
+								type="file"
+								id="image"
+								name="image"
+								onChange={uploadImage}
+							/>
+						</div>
+						<button
+							type="submit"
+							className="submit-btn btn"
+							onClick={(e) => {
+								addToInventory(e);
+							}}
+						>
+							<IoBagAddOutline />
+							ADD TO INVENTORY
+						</button>
+					</form>
+				</section>
+				<div className="overlay" onClick={() => toggleModal()}></div>
+			</div>
 		</>
 	);
 }

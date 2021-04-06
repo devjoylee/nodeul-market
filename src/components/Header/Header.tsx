@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "../Container";
-import { IoAddCircleSharp } from "react-icons/io5";
+import { RiHeartAddFill } from "react-icons/ri";
 import { TiShoppingCart } from "react-icons/ti";
 
 interface HeaderProps {
@@ -23,7 +23,7 @@ export function Header({ toggleCart, toggleModal }: HeaderProps) {
 
 				<div className="header__btns">
 					<button className="addbtn" onClick={() => toggleModal()}>
-						<IoAddCircleSharp />
+						<RiHeartAddFill />
 						Add Item
 					</button>
 					<button className="cartbtn" onClick={() => toggleCart()}>

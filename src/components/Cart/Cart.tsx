@@ -44,7 +44,7 @@ export function Cart({
 					)}
 				</div>
 			</aside>
-			<div className="cart__overlay" onClick={() => toggleCart()}></div>
+			<div className="overlay" onClick={() => toggleCart()}></div>
 		</div>
 	);
 }
