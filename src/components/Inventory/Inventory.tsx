@@ -4,16 +4,16 @@ import type { iItemDetail } from '../../App';
 import { Item } from './Item';
 
 interface InventoryProps {
-  items: iItemDetail[];
+  inventoryItems: iItemDetail[];
   addToCart: (clickedItem: iItemDetail) => void;
 }
 
-export function Inventory({ items, addToCart }: InventoryProps) {
+export function Inventory({ inventoryItems, addToCart }: InventoryProps) {
   return (
     <main className="inventory">
       <Container margin>
         <div className="item-list">
-          {items.map((item) => (
+          {inventoryItems.map((item) => (
             <Item key={item.id} item={item} addToCart={addToCart} />
           ))}
         </div>

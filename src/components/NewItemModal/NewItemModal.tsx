@@ -26,6 +26,18 @@ export function NewItemModal({
     }
   };
 
+  const uploadImage = () => {
+    const imgInput = document.getElementById('image')! as HTMLInputElement;
+    if (imgInput.files && imgInput.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        console.log(e.target?.result);
+      };
+      reader.readAsDataURL(imgInput.files[0]);
+      console.log(values.image);
+    }
+  };
+
   return (
     <>
       {openModal && (
@@ -42,6 +54,15 @@ export function NewItemModal({
                   value={values.name}
                   onChange={handleChange}
                   placeholder="상품명"
+                />
+              </div>
+              <div className="new-item-info">
+                <label htmlFor="image">이미지</label>
+                <input
+                  type="file"
+                  id="image"
+                  name="image"
+                  onChange={uploadImage}
                 />
               </div>
               <div className="new-item-info">

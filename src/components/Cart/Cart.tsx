@@ -5,7 +5,7 @@ import { VscClose } from 'react-icons/vsc';
 
 interface CartProps {
   openCart: boolean;
-  itemInCart: iItemDetail[];
+  cartItems: iItemDetail[];
   toggleCart: () => void;
   removeFromCart: (id: number) => void;
 }
@@ -13,7 +13,7 @@ interface CartProps {
 export function Cart({
   openCart,
   toggleCart,
-  itemInCart,
+  cartItems,
   removeFromCart,
 }: CartProps) {
   return (
@@ -25,12 +25,12 @@ export function Cart({
         </button>
 
         <div className="cart__item-wrapper">
-          {itemInCart.length === 0 ? (
+          {cartItems.length === 0 ? (
             // 장바구니 is empty
             <p>장바구니가 비어있어요😥</p>
           ) : (
             // 장바구니 has items
-            itemInCart.map((item) => (
+            cartItems.map((item) => (
               <CartItem
                 key={item.id}
                 item={item}

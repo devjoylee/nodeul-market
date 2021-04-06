@@ -21,6 +21,12 @@ body {
   box-sizing: border-box;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .btn {
   display: block;
   width: 100%;
@@ -59,13 +65,15 @@ body {
 /* header */
 .header {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   padding: 40px 0;
   border-bottom: var(--border);
   background-image: url('https://t4.ftcdn.net/jpg/02/17/71/69/360_F_217716920_z6weIfcrxJXfopSs8DGx5tMW9kSfROVH.jpg');
+}
+
+.header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header__logo {
@@ -103,6 +111,7 @@ body {
 /* inventory */
 .inventory {
   padding: 30px 0;
+  flex: 1;
 }
 
 .container {
