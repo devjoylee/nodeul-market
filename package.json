@@ -1,0 +1,17 @@
+{
+	"scripts": {
+		"dev": "retro dev",
+		"build": "retro build",
+		"serve": "retro serve"
+	},
+	"dependencies": {
+		"react": "v17.0.2",
+		"react-dom": "v17.0.2",
+		"react-icons": "^4.2.0"
+	},
+	"devDependencies": {
+		"@types/react": "^17.0.3",
+		"@zaydek/retro": "v0.0.32",
+		"esbuild": "v0.10.2"
+	}
+}
