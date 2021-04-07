@@ -48,6 +48,7 @@ export function NewItemModal({
 					<button className="modal__closebtn" onClick={() => toggleModal()}>
 						<VscClose />
 					</button>
+					<h2 className="modal__title">- New Item -</h2>
 					<form className="new-item">
 						<div className="new-item-info">
 							<label htmlFor="name">Title</label>

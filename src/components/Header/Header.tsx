@@ -13,7 +13,7 @@ export function Header({ toggleCart, toggleModal }: HeaderProps) {
 		<header className="header">
 			<Container margin>
 				<div className="header-top">
-					<h1 className="header__logo">Nodeul Market</h1>
+					<h1 className="header__logo">NODEUL MARKET</h1>
 					<div className="header__btns">
 						<button className="addbtn" onClick={() => toggleModal()}>
 							<RiHeartAddFill />
@@ -26,13 +26,13 @@ export function Header({ toggleCart, toggleModal }: HeaderProps) {
 					</div>
 				</div>
 
-				<ul className="header__menu">
+				{/* <ul className="header__menu">
 					<li>🧅</li>
 					<li>🥕</li>
 					<li>🧄</li>
 					<li>🍎</li>
 					<li>🥔</li>
-				</ul>
+				</ul> */}
 			</Container>
 		</header>
 	);

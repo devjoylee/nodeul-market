@@ -32,6 +32,7 @@ function App() {
 			}
 
 			// First time the item is added
+			alert("Successfully added 🎉");
 			return [...prevItems, { ...clickedItem }];
 		});
 	};

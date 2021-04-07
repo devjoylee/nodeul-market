@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "../Container";
 import type { iItemDetail } from "../../App";
 import { Item } from "./Item";
-import { InventoryEmpty } from "./InventoryEmpty";
+import { InventoryEmpty } from "./MainBanner";
 
 interface InventoryProps {
 	inventoryItems: iItemDetail[];
@@ -17,10 +17,11 @@ export function Inventory({
 }: InventoryProps) {
 	return (
 		<main className="inventory">
+			<InventoryEmpty toggleModal={toggleModal} />
 			<Container margin>
 				{inventoryItems.length === 0 ? (
 					// if the inventory is empty
-					<InventoryEmpty toggleModal={toggleModal} />
+					<div>empty</div>
 				) : (
 					// if the inventory has items
 					<div className="item-list">
