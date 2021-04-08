@@ -2,22 +2,15 @@ import React from "react";
 import { Container } from "../Container";
 import type { iItemDetail } from "../../App";
 import { Item } from "./Item";
-import { MainBanner } from "./MainBanner";
 
 interface InventoryProps {
 	inventoryItems: iItemDetail[];
 	addToCart: (clickedItem: iItemDetail) => void;
-	toggleModal: () => void;
 }
 
-export function Inventory({
-	inventoryItems,
-	addToCart,
-	toggleModal,
-}: InventoryProps) {
+export function Inventory({ inventoryItems, addToCart }: InventoryProps) {
 	return (
-		<main className="inventory">
-			<MainBanner toggleModal={toggleModal} />
+		<section className="inventory">
 			<Container margin>
 				{inventoryItems.length === 0 ? (
 					// if the inventory is empty
@@ -31,6 +24,6 @@ export function Inventory({
 					</div>
 				)}
 			</Container>
-		</main>
+		</section>
 	);
 }

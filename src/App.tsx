@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import "./styles/App.css";
-import { Header, Inventory, Footer, Cart, NewItemModal } from "./components";
+import {
+	Header,
+	MainBanner,
+	Inventory,
+	Footer,
+	Cart,
+	NewItemModal,
+} from "./components";
 
 export interface iItemDetail {
 	id: number;
@@ -54,11 +61,8 @@ function App() {
 	return (
 		<>
 			<Header toggleCart={handleToggleCart} toggleModal={handleToggleModal} />
-			<Inventory
-				inventoryItems={inventoryItems}
-				addToCart={handleAddToCart}
-				toggleModal={handleToggleModal}
-			/>
+			<MainBanner toggleModal={handleToggleModal} />
+			<Inventory inventoryItems={inventoryItems} addToCart={handleAddToCart} />
 			<Footer />
 			<Cart
 				openCart={openCart}

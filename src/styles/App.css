@@ -143,8 +143,6 @@ body {
 
 /* inventory */
 .inventory {
-	margin-top: var(--header-height);
-	min-height: 700px;
 	flex: 1;
 }
 
@@ -153,6 +151,7 @@ body {
 }
 
 .main-banner {
+	margin-top: var(--header-height);
 	height: 600px;
 	display: flex;
 	flex-direction: column;
