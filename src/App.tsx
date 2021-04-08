@@ -33,7 +33,7 @@ function App() {
 
 			// First time the item is added
 			alert("Successfully added 🎉");
-			return [...prevItems, { ...clickedItem }];
+			return [{ ...clickedItem }, ...prevItems];
 		});
 	};
 
@@ -47,7 +47,7 @@ function App() {
 
 	const handleNewItem = (item: iItemDetail) => {
 		setInventoryItems((prevItems) => {
-			return [...prevItems, { ...item }];
+			return [{ ...item }, ...prevItems];
 		});
 	};
 

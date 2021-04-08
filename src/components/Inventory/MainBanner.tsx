@@ -1,13 +1,13 @@
 import React from "react";
 import { RiHeartAddFill } from "react-icons/ri";
 
-interface InventoryEmptyProps {
+interface MainBannerProps {
 	toggleModal: () => void;
 }
 
-export function InventoryEmpty({ toggleModal }: InventoryEmptyProps) {
+export function MainBanner({ toggleModal }: MainBannerProps) {
 	return (
-		<div className="inventory-empty">
+		<div className="main-banner">
 			<p>
 				Are you sick of wasting food? <br />
 				Feel free to share your extra groceries.

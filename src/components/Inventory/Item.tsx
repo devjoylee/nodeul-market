@@ -14,13 +14,15 @@ export function Item({ item, addToCart }: ItemProps) {
 				<div className="image-box">
 					<img src={item.image} alt={item.name} className="thumbnail" />
 				</div>
-				<div className="item__detail">
-					<h3>{item.name}</h3>
-					<p>카테고리 : {item.category}</p>
-					<p>수량 : {item.amount}</p>
-					<p>{item.price}원</p>
-					<p>{item.description}</p>
-				</div>
+				<ul className="item__detail">
+					<li className="category">
+						<span>{item.category}</span>
+					</li>
+					<li className="name">{item.name}</li>
+					<li>stock : {item.amount}</li>
+					<li className="description">{item.description}</li>
+					<li className="price">￦{item.price}</li>
+				</ul>
 				<button className="item__addbtn btn" onClick={() => addToCart(item)}>
 					<MdAddShoppingCart />
 					ADD TO CART

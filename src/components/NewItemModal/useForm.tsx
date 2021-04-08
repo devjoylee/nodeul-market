@@ -15,7 +15,9 @@ export const useForm = () => {
 	const [values, setValues] = useState(initialValues);
 
 	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+		e: React.ChangeEvent<
+			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+		>
 	) => {
 		const { name, value } = e.target;
 		setValues({
@@ -24,10 +26,9 @@ export const useForm = () => {
 		});
 	};
 
-	const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-		e.preventDefault();
+	const handleResetForm = () => {
 		setValues(initialValues);
 	};
 
-	return { values, handleChange, handleSubmit };
+	return { values, handleChange, handleResetForm };
 };

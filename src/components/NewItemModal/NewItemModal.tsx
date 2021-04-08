@@ -15,16 +15,20 @@ export function NewItemModal({
 	toggleModal,
 	newItem,
 }: NewItemModalProps) {
-	const { values, handleChange, handleSubmit } = useForm();
+	const { values, handleChange, handleResetForm } = useForm();
 
-	// 아이템 추가 버튼 클릭 시, 모달 닫히고 아이템 등록
+	// 폼 리셋후 모달 close
+	const closeModal = () => {
+		handleResetForm();
+		toggleModal();
+	};
+
+	// 폼 input이 모두 입력된 경우 submit
 	const addToInventory = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-
-		if (values.name) {
-			handleSubmit(e);
+		if (values.name && values.category && values.amount) {
 			newItem(values);
-			toggleModal();
+			closeModal();
 		}
 	};
 
@@ -42,10 +46,9 @@ export function NewItemModal({
 
 	return (
 		<>
-			{/* <div className="modal modal-open"> */}
 			<div className={openModal ? "modal modal-open" : "modal"}>
 				<section className="modal__content">
-					<button className="modal__closebtn" onClick={() => toggleModal()}>
+					<button className="modal__closebtn" onClick={() => closeModal()}>
 						<VscClose />
 					</button>
 					<h2 className="modal__title">- New Item -</h2>
@@ -64,15 +67,22 @@ export function NewItemModal({
 						</div>
 						<div className="new-item-info">
 							<label htmlFor="category">Category</label>
-							<input
-								type="text"
-								id="category"
+							<select
 								name="category"
-								value={values.category}
-								onChange={handleChange}
-								placeholder="Category"
+								id="category"
 								className="form-input"
-							/>
+								defaultValue={"default"}
+								onChange={handleChange}
+							>
+								<option value="default" disabled hidden>
+									-- what kind of item do you want to add ? --
+								</option>
+								<option value="fruit">Fruit</option>
+								<option value="vegitable">Vegitable</option>
+								<option value="dairy">Dairy Products</option>
+								<option value="frozen">Frozen</option>
+								<option value="etc">etc</option>
+							</select>
 						</div>
 						<div className="new-item-info">
 							<label htmlFor="amount">Amount</label>
@@ -130,7 +140,7 @@ export function NewItemModal({
 						</button>
 					</form>
 				</section>
-				<div className="overlay" onClick={() => toggleModal()}></div>
+				<div className="overlay" onClick={() => closeModal()}></div>
 			</div>
 		</>
 	);

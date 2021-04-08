@@ -33,19 +33,18 @@ export function CartItem({ item, removeFromCart }: CartItemProps) {
 	return (
 		<section className="cart-item">
 			<div className="cart-info-wrapper">
-				<div className="cart-info">
-					<h3 className="name">{item.name}</h3>
-					<span className="category">{item.category}</span>
-					<span className="amount">Current stock : {item.amount}</span>
-					<p className="price">
+				<ul className="cart-info">
+					<li className="name">{item.name}</li>
+					<li className="amount">current stock : {item.amount}</li>
+					<li className="price">
 						￦{item.price * amount} <span>(￦{item.price} per item)</span>
-					</p>
+					</li>
 					<div className="amount-controller">
 						<button onClick={() => decreaseAmount()}>-</button>
 						<span>{amount}</span>
 						<button onClick={() => increaseAmount()}>+</button>
 					</div>
-				</div>
+				</ul>
 				<div className="image-box">
 					<img src={item.image} alt={item.name} className="thumbnail" />
 				</div>
