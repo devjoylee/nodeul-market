@@ -19,7 +19,7 @@ export function Item({ item, addToCart }: ItemProps) {
 						<span>{item.category}</span>
 					</li>
 					<li className="name">{item.name}</li>
-					<li>stock : {item.amount}</li>
+					<li className="stock">stock : {item.amount}</li>
 					<li className="description">{item.description}</li>
 					<li className="price">￦{item.price}</li>
 				</ul>

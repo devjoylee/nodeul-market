@@ -7,8 +7,8 @@ interface MainBannerProps {
 
 export function MainBanner({ toggleModal }: MainBannerProps) {
 	return (
-		<div className="main-banner">
-			<p>
+		<section className="main-banner">
+			<p className="main-banner__text">
 				Are you sick of wasting food? <br />
 				Feel free to share your extra groceries.
 				<br />
@@ -16,10 +16,9 @@ export function MainBanner({ toggleModal }: MainBannerProps) {
 				Join to stop waste and save our earth :)
 			</p>
 
-			<button className="addbtn" onClick={() => toggleModal()}>
-				<RiHeartAddFill />
+			<button className="main-banner__btn" onClick={() => toggleModal()}>
 				ADD ITEM
 			</button>
-		</div>
+		</section>
 	);
 }

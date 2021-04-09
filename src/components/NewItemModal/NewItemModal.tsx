@@ -78,8 +78,8 @@ export function NewItemModal({
 									-- what kind of item do you want to add ? --
 								</option>
 								<option value="fruit">Fruit</option>
-								<option value="vegitable">Vegitable</option>
 								<option value="dairy">Dairy Products</option>
+								<option value="vegitable">Vegitable</option>
 								<option value="frozen">Frozen</option>
 								<option value="etc">etc</option>
 							</select>

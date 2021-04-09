@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700;800;900&display=swap");
 
 :root {
-	--main-color: #f1c358;
 	--main-font: "Nunito", sans-serif;
 	--border: 1px solid #e5e5e5;
 	--border-dashed: 5px dashed #f3f3f3;
 	--header-height: 120px;
+
+	--main-color: #f1c358;
+	--label-color-1: #f77272;
+	--label-color-2: #e5c479;
+	--label-color-3: #9cc89d;
+	--label-color-4: #93bece;
+	--label-color-5: #c2c2c2;
 }
 
 /* common */
@@ -159,37 +165,60 @@ body {
 	align-items: center;
 	background: url("https://image.freepik.com/free-photo/zero-waste-concept-string-bag-plastic-bag-female-hand-with-earth-globe-plastic-bags-free_90380-749.jpg")
 		center / cover no-repeat;
-	/* border: 10px solid #a0e1ea; */
+	/* background: url("/www/images/background.jpg") center / cover no-repeat; */
 }
 
-.main-banner p {
+.main-banner .main-banner__text {
 	text-align: center;
 	line-height: 1.5;
 	font-size: 22px;
 	font-weight: 600;
 	color: #333;
-	margin-bottom: 40px;
+	margin-bottom: 35px;
 }
 
-.main-banner .addbtn {
-	border: 2px dashed var(--main-color);
-	color: var(--main-color);
-	background: transparent;
-	padding: 10px 15px;
+.main-banner__btn {
+	z-index: 1;
+	background-color: transparent;
+	position: relative;
+	display: inline-block;
+	font-size: 16px;
+	padding: 10px 20px;
+	color: #333;
+	text-decoration: none;
+	border: solid 5px var(--main-color);
+	box-shadow: 10px 10px 0 -5px var(--main-color);
+	transition: 0.3s;
+	overflow: hidden;
+	letter-spacing: 1px;
+	font-weight: 400;
 	font-family: var(--main-font);
-	font-size: 18px;
-	font-weight: 700;
-	transition: all 0.2s ease-in-out;
-	display: flex;
-	align-items: center;
 }
 
-.main-banner .addbtn:hover {
-	background: var(--main-color);
+.main-banner__btn::before {
+	display: inline-block;
+	transition: bottom, 0.35s;
+	position: absolute;
+	transform: skew(-50deg);
+	top: 0px;
+	left: 260px;
+	background-color: var(--main-color);
+	content: "　";
+	width: 200px;
+	height: 120px;
+	z-index: -1;
+}
+
+.main-banner__btn:hover {
 	color: #fff;
+	box-shadow: 0px 0px 0 0px var(--main-color);
 }
 
-.main-banner .addbtn svg {
+.main-banner__btn:hover:before {
+	top: -40px;
+	left: -40px;
+}
+.main-banner__btn svg {
 	margin-right: 3px;
 }
 
@@ -236,7 +265,6 @@ body {
 .item .category span {
 	font-size: 14px;
 	padding: 1px 6px;
-	background: #e95959;
 	color: #fff;
 	border-radius: 5px;
 }
@@ -619,4 +647,20 @@ body {
 	visibility: visible;
 	opacity: 1;
 	z-index: 1;
+}
+
+.label-color-1 {
+	background: var(--label-color-1);
+}
+.label-color-2 {
+	background: var(--label-color-2);
+}
+.label-color-3 {
+	background: var(--label-color-3);
+}
+.label-color-4 {
+	background: var(--label-color-4);
+}
+.label-color-5 {
+	background: var(--label-color-5);
 }
