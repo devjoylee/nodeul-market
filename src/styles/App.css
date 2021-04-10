@@ -87,9 +87,8 @@ body {
 	position: fixed;
 	width: 100%;
 	height: var(--header-height);
-	/* padding: 40px 0; */
 	background: #3a3636;
-	/* background-image: url("https://t4.ftcdn.net/jpg/02/17/71/69/360_F_217716920_z6weIfcrxJXfopSs8DGx5tMW9kSfROVH.jpg"); */
+	z-index: 10;
 }
 
 .header-top {
@@ -147,15 +146,7 @@ body {
 	/* opacity: 0.4; */
 }
 
-/* inventory */
-.inventory {
-	flex: 1;
-}
-
-.inventory > .container {
-	padding: 30px 0;
-}
-
+/* main banner */
 .main-banner {
 	margin-top: var(--header-height);
 	height: 600px;
@@ -218,8 +209,18 @@ body {
 	top: -40px;
 	left: -40px;
 }
+
 .main-banner__btn svg {
 	margin-right: 3px;
+}
+
+/* inventory */
+.inventory {
+	flex: 1;
+}
+
+.inventory > .container {
+	margin-bottom: 30px;
 }
 
 .inventory-empty {
@@ -229,6 +230,33 @@ body {
 	color: #ddd;
 	border: var(--border-dashed);
 	padding: 60px 0;
+}
+
+.inventory__filter {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 25px 0;
+	padding-left: 50px;
+	position: relative;
+}
+
+.inventory__filter::before {
+	content: "filter :";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.filter-box {
+	flex-basis: 20%;
+	text-align: center;
+}
+
+.filter-name {
+	padding: 10px;
+	cursor: pointer;
 }
 
 .item-list {
@@ -345,10 +373,6 @@ body {
 }
 
 /* cart */
-.cart {
-	/* z-index: -1; */
-}
-
 .cart__drawer {
 	width: 450px;
 	height: 100vh;
@@ -400,7 +424,7 @@ body {
 .cart-open .cart__drawer {
 	transform: translateX(0);
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-	z-index: 3;
+	z-index: 30;
 }
 
 .cart__closebtn {
@@ -521,11 +545,11 @@ body {
 
 .modal__content {
 	width: 50%;
-	height: 600px;
+	height: 550px;
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	padding: 20px 25px 30px;
+	padding: 20px 25px 25px;
 	box-sizing: border-box;
 	background: #f7f7f7;
 	opacity: 0;
@@ -539,14 +563,14 @@ body {
 
 .modal-open .modal__content {
 	opacity: 1;
-	z-index: 2;
+	z-index: 20;
 	/* transform: translate(-50%, -50%); */
 }
 
 .modal__closebtn {
 	display: block;
 	margin-left: auto;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 .modal .overlay {
@@ -554,9 +578,10 @@ body {
 }
 
 .modal__title {
-	font-size: 28px;
+	font-size: 25px;
 	text-align: center;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
+	margin-top: -5px;
 	text-transform: uppercase;
 }
 
@@ -646,7 +671,7 @@ body {
 .modal-open .overlay {
 	visibility: visible;
 	opacity: 1;
-	z-index: 1;
+	z-index: 10;
 }
 
 .label-color-1 {
