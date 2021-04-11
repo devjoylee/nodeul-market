@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@types/react": "^17.0.3",
-		"@zaydek/retro": "v0.0.32",
-		"esbuild": "v0.10.2"
+		"@zaydek/retro": "v0.0.42",
+		"esbuild": "v0.11.6"
 	}
 }
