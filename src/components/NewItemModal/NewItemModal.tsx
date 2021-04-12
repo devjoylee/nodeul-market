@@ -147,19 +147,19 @@ export function NewItemModal({
 								Image <span className="optional">(optional)</span>
 							</label>
 							<div className="input-wrapper">
-								{preview && (
-									<img
-										src={preview}
-										alt="preview"
-										className="preview"
-										onClick={() => {
-											handleRemoveImage();
-										}}
-									/>
-								)}
-								{!preview && (
-									<button onClick={(e) => handleAddImage(e)}>Add Image</button>
-								)}
+								<div className="preview-box">
+									{preview ? (
+										<img
+											src={preview}
+											alt="preview"
+											onClick={() => {
+												handleRemoveImage();
+											}}
+										/>
+									) : (
+										<button onClick={(e) => handleAddImage(e)}>+</button>
+									)}
+								</div>
 								<input
 									type="file"
 									id="image"

@@ -1,18 +1,7 @@
+@import "./reset.css";
+@import "./variables.scss";
+
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700;800;900&display=swap");
-
-:root {
-	--main-font: "Nunito", sans-serif;
-	--border: 1px solid #e5e5e5;
-	--border-dashed: 5px dashed #f3f3f3;
-	--header-height: 120px;
-
-	--main-color: #f1c358;
-	--label-color-1: #f77272;
-	--label-color-2: #e5c479;
-	--label-color-3: #9cc89d;
-	--label-color-4: #93bece;
-	--label-color-5: #c2c2c2;
-}
 
 /* common */
 *,
@@ -25,7 +14,7 @@
 
 body {
 	font-size: 16px;
-	font-family: var(--main-font);
+	font-family: $main-font;
 	font-weight: 400;
 	box-sizing: border-box;
 }
@@ -49,11 +38,11 @@ body {
 	color: #6e6e6e;
 	background-color: #e7e8ea;
 	font-size: 16px;
-	font-family: var(--main-font);
+	font-family: $main-font;
 	font-weight: 700;
 	text-align: center;
 	transition: all 0.1s ease-in-out;
-	border: var(--border);
+	border: $border;
 
 	display: flex;
 	justify-content: center;
@@ -61,7 +50,7 @@ body {
 }
 
 .btn:hover {
-	background-color: var(--main-color);
+	background-color: $main-color;
 	color: #fff;
 }
 
@@ -73,7 +62,7 @@ body {
 .thumbnail {
 	display: block;
 	object-fit: cover;
-	border: var(--border);
+	border: $border;
 	width: 100%;
 	height: 100%;
 }
@@ -86,7 +75,7 @@ body {
 
 	position: fixed;
 	width: 100%;
-	height: var(--header-height);
+	height: $header-height;
 	background: #3a3636;
 	z-index: 10;
 }
@@ -117,38 +106,34 @@ body {
 
 .header__btns {
 	display: flex;
-}
 
-.header__btns button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-family: var(--main-font);
-	font-weight: 700;
-	background: var(--main-color);
-	width: 130px;
-	height: 40px;
-	font-size: 18px;
-	padding: 7px 0;
-	color: #1f1a37;
-}
+	button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: $main-font;
+		font-weight: 700;
+		background: $main-color;
+		width: 130px;
+		height: 40px;
+		font-size: 18px;
+		padding: 7px 0;
+		color: #1f1a37;
 
-.header__btns button:first-child {
-	margin-right: 10px;
-}
+		&:first-child {
+			margin-right: 10px;
+		}
 
-.header__btns button svg {
-	margin-right: 3px;
-	font-size: 22px;
-}
-
-.header__btns button:hover {
-	/* opacity: 0.4; */
+		svg {
+			margin-right: 3px;
+			font-size: 22px;
+		}
+	}
 }
 
 /* main banner */
 .main-banner {
-	margin-top: var(--header-height);
+	margin-top: $header-height;
 	height: 600px;
 	display: flex;
 	flex-direction: column;
@@ -178,50 +163,51 @@ body {
 	padding: 10px 20px;
 	color: #333;
 	text-decoration: none;
-	border: solid 5px var(--main-color);
-	box-shadow: 10px 10px 0 -5px var(--main-color);
+	border: solid 5px $main-color;
+	box-shadow: 10px 10px 0 -5px $main-color;
 	transition: 0.3s;
 	overflow: hidden;
 	letter-spacing: 1px;
 	font-weight: 400;
-	font-family: var(--main-font);
-}
+	font-family: $main-font;
 
-.main-banner__btn::before {
-	display: inline-block;
-	transition: bottom, 0.35s;
-	position: absolute;
-	transform: skew(-50deg);
-	top: 0px;
-	left: 260px;
-	background-color: var(--main-color);
-	content: "　";
-	width: 200px;
-	height: 120px;
-	z-index: -1;
-}
+	&::before {
+		display: inline-block;
+		transition: bottom, 0.35s;
+		position: absolute;
+		transform: skew(-50deg);
+		top: 0px;
+		left: 260px;
+		background-color: $main-color;
+		content: "　";
+		width: 200px;
+		height: 120px;
+		z-index: -1;
+	}
 
-.main-banner__btn:hover {
-	color: #fff;
-	box-shadow: 0px 0px 0 0px var(--main-color);
-}
+	&:hover {
+		color: #fff;
+		box-shadow: 0px 0px 0 0px $main-color;
+	}
 
-.main-banner__btn:hover:before {
-	top: -40px;
-	left: -40px;
-}
+	&:hover:before {
+		top: -40px;
+		left: -40px;
+	}
 
-.main-banner__btn svg {
-	margin-right: 3px;
+	svg {
+		margin-right: 3px;
+	}
 }
 
 /* inventory */
 .inventory {
 	flex: 1;
-}
 
-.inventory > .container {
-	margin-bottom: 30px;
+	.container {
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
 }
 
 .inventory-empty {
@@ -229,7 +215,7 @@ body {
 	font-size: 30px;
 	font-weight: 700;
 	color: #ddd;
-	border: var(--border-dashed);
+	border: $border-dashed;
 	padding: 60px 0;
 }
 
@@ -237,17 +223,19 @@ body {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	padding: 25px 0;
-	padding-left: 50px;
+	padding: 15px 0;
+	margin-bottom: 20px;
+	padding-left: 60px;
+	background: #f6f6f6;
 	position: relative;
-}
 
-.inventory__filter::before {
-	content: "filter :";
-	position: absolute;
-	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
+	&::before {
+		content: "filter :";
+		position: absolute;
+		left: 30px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
 }
 
 .filter-box {
@@ -276,7 +264,7 @@ body {
 
 .item {
 	padding: 12px;
-	border: var(--border-dashed);
+	border: $border-dashed;
 }
 
 .item .image-box {
@@ -310,7 +298,7 @@ body {
 	text-align: right;
 	font-size: 26px;
 	font-weight: 600;
-	color: var(--main-color);
+	color: $main-color;
 	margin: 0;
 }
 
@@ -401,7 +389,7 @@ body {
 .cart__item-wrapper {
 	flex: 1;
 	overflow: auto;
-	border: var(--border-dashed);
+	border: $border-dashed;
 }
 
 .cart__item-wrapper .empty {
@@ -410,16 +398,16 @@ body {
 	align-items: center;
 	flex-direction: column;
 	height: 100%;
-}
 
-.cart__item-wrapper .empty svg {
-	font-size: 80px;
-	margin-bottom: 7px;
-	color: var(--main-color);
-}
+	svg {
+		font-size: 80px;
+		margin-bottom: 7px;
+		color: $main-color;
+	}
 
-.cart__item-wrapper .empty p {
-	color: var(--main-color);
+	p {
+		color: $main-color;
+	}
 }
 
 .cart-open .cart__drawer {
@@ -437,11 +425,10 @@ body {
 
 .cart-item {
 	padding: 15px;
-	border-bottom: var(--border-dashed);
+	border-bottom: $border-dashed;
 }
 
 .cart-info-wrapper {
-	--image-box-size: 130px;
 	display: flex;
 }
 
@@ -450,7 +437,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	padding-right: 10px;
-	width: calc(100% - var(--image-box-size));
+	width: calc(100% - $cart-thumbnail-size);
 }
 
 .cart-info > li {
@@ -458,8 +445,8 @@ body {
 }
 
 .cart-info-wrapper .image-box {
-	width: var(--image-box-size);
-	height: var(--image-box-size);
+	width: $cart-thumbnail-size;
+	height: $cart-thumbnail-size;
 }
 
 .cart-info .price {
@@ -467,7 +454,7 @@ body {
 	text-align: right;
 	font-size: 26px;
 	font-weight: 600;
-	color: var(--main-color);
+	color: $main-color;
 }
 
 .cart-info .name {
@@ -507,7 +494,7 @@ body {
 	height: 25px;
 	font-size: 16px;
 	border-radius: 4px;
-	background: var(--main-color);
+	background: $main-color;
 	color: #fff;
 }
 
@@ -559,13 +546,12 @@ body {
 	display: flex;
 	flex-direction: column;
 	z-index: -1;
-	border: 8px solid var(--main-color);
+	border: 8px solid $main-color;
 }
 
 .modal-open .modal__content {
 	opacity: 1;
 	z-index: 20;
-	/* transform: translate(-50%, -50%); */
 }
 
 .modal__closebtn {
@@ -589,6 +575,11 @@ body {
 .modal__content form {
 	position: relative;
 	flex: 1;
+
+	.submit-btn {
+		position: absolute;
+		bottom: 0;
+	}
 }
 
 .form-item {
@@ -622,11 +613,11 @@ body {
 			font-size: 16px;
 			background: transparent;
 			border: 1px solid #ccc;
-			font-family: var(--main-font);
+			font-family: $main-font;
 
 			&:focus {
 				border: none;
-				outline: 2px solid var(--main-color);
+				outline: 2px solid $main-color;
 			}
 		}
 
@@ -652,12 +643,28 @@ body {
 			color: red;
 			font-size: 0.9em;
 		}
-	}
-}
 
-.submit-btn {
-	position: absolute;
-	bottom: 0;
+		.preview-box {
+			width: 70px;
+			height: 70px;
+			cursor: pointer;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border: $border;
+			}
+
+			button {
+				width: 100%;
+				height: 100%;
+				color: #dadada;
+				border: 5px dashed #dadada;
+				font-size: 35px;
+			}
+		}
+	}
 }
 
 @media (max-width: 991px) {
@@ -693,17 +700,17 @@ body {
 }
 
 .label-color-1 {
-	background: var(--label-color-1);
+	background: $label-color-1;
 }
 .label-color-2 {
-	background: var(--label-color-2);
+	background: $label-color-2;
 }
 .label-color-3 {
-	background: var(--label-color-3);
+	background: $label-color-3;
 }
 .label-color-4 {
-	background: var(--label-color-4);
+	background: $label-color-4;
 }
 .label-color-5 {
-	background: var(--label-color-5);
+	background: $label-color-5;
 }
