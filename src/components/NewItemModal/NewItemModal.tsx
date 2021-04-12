@@ -1,28 +1,34 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import type { iItemDetail } from "../../App";
 import { useForm } from "./useForm";
 import validate, { ErrorMessage } from "./validation";
 import { VscClose } from "react-icons/vsc";
 import { IoBagAddOutline } from "react-icons/io5";
+import { useImage } from "./useImage";
 
 interface NewItemModalProps {
 	openModal: boolean;
 	toggleModal: () => void;
-	getNewItem: (newItem: iItemDetail) => void;
+	saveDetails: (newItem: iItemDetail) => void;
 }
 
 export function NewItemModal({
 	openModal,
 	toggleModal,
-	getNewItem,
+	saveDetails,
 }: NewItemModalProps) {
 	const { values, handleChange, handleResetForm } = useForm();
 	const [errors, setErrors] = useState({} as ErrorMessage);
 
+	const fileImageRef = useRef<HTMLInputElement>(null);
+
+	const { preview, handleImageURL, handleRemoveImage } = useImage();
+
 	// 폼 리셋후 모달 close
 	const closeModal = () => {
-		handleResetForm();
-		toggleModal();
+		handleResetForm(); // form value reset
+		setErrors({}); // error reset
+		toggleModal(); // close modal
 	};
 
 	// 폼 input이 모두 입력된 경우 submit
@@ -32,24 +38,16 @@ export function NewItemModal({
 		const error = await validate(values);
 		const hasInvaild = Object.keys(error).length;
 		setErrors(error);
-		console.log(errors);
 
 		if (!hasInvaild) {
-			getNewItem(values);
+			saveDetails(values);
 			closeModal();
 		}
 	};
 
-	const uploadImage = () => {
-		const imgInput = document.getElementById("image")! as HTMLInputElement;
-		if (imgInput.files && imgInput.files[0]) {
-			const reader = new FileReader();
-			reader.onload = (e) => {
-				console.log(e.target?.result);
-			};
-			reader.readAsDataURL(imgInput.files[0]);
-			console.log(values.image);
-		}
+	const handleAddImage = (e) => {
+		e.preventDefault();
+		fileImageRef.current?.click();
 	};
 
 	return (
@@ -149,11 +147,28 @@ export function NewItemModal({
 								Image <span className="optional">(optional)</span>
 							</label>
 							<div className="input-wrapper">
+								{preview && (
+									<img
+										src={preview}
+										alt="preview"
+										className="preview"
+										onClick={() => {
+											handleRemoveImage();
+										}}
+									/>
+								)}
+								{!preview && (
+									<button onClick={(e) => handleAddImage(e)}>Add Image</button>
+								)}
 								<input
 									type="file"
 									id="image"
 									name="image"
-									onChange={uploadImage}
+									accept="image/*"
+									ref={fileImageRef}
+									onChange={(e) => {
+										handleImageURL(e);
+									}}
 								/>
 							</div>
 						</div>
