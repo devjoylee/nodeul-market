@@ -52,7 +52,7 @@ function App() {
 		}
 	};
 
-	const handleNewItem = (item: iItemDetail) => {
+	const handleGetNewItem = (item: iItemDetail) => {
 		setInventoryItems((prevItems) => {
 			return [{ ...item }, ...prevItems];
 		});
@@ -73,7 +73,7 @@ function App() {
 			<NewItemModal
 				openModal={openModal}
 				toggleModal={handleToggleModal}
-				newItem={handleNewItem}
+				getNewItem={handleGetNewItem}
 			/>
 		</>
 	);

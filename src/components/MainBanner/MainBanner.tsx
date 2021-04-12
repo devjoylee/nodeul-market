@@ -1,5 +1,4 @@
 import React from "react";
-import { RiHeartAddFill } from "react-icons/ri";
 
 interface MainBannerProps {
 	toggleModal: () => void;

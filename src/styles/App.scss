@@ -546,7 +546,7 @@ body {
 
 .modal__content {
 	width: 50%;
-	height: 550px;
+	height: 600px;
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -586,59 +586,78 @@ body {
 	text-transform: uppercase;
 }
 
-.modal__content .new-item {
+.modal__content form {
 	position: relative;
 	flex: 1;
 }
 
-.new-item-info {
+.form-item {
 	display: flex;
 	align-items: center;
-	margin-right: 40px;
-	margin-bottom: 10px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+	position: relative;
+
+	label {
+		display: inline-block;
+		width: 20%;
+		text-align: center;
+		font-weight: 700;
+		color: #444;
+
+		.optional {
+			display: block;
+			color: #aaa;
+			font-weight: 400;
+			font-size: 0.9em;
+		}
+	}
+
+	.input-wrapper {
+		width: 80%;
+
+		.item-input {
+			width: 100%;
+			padding: 7px;
+			font-size: 16px;
+			background: transparent;
+			border: 1px solid #ccc;
+			font-family: var(--main-font);
+
+			&:focus {
+				border: none;
+				outline: 2px solid var(--main-color);
+			}
+		}
+
+		input {
+			height: 35px;
+		}
+
+		input#image,
+		input#image:focus {
+			border: none;
+			outline: none;
+		}
+
+		select#category option:first-child {
+			color: #aaa;
+		}
+
+		textarea#description {
+			height: 110px;
+		}
+
+		.error {
+			margin-left: 3px;
+			margin-top: 2px;
+			color: red;
+			font-size: 0.9em;
+		}
+	}
 }
 
-.new-item-info label {
-	display: inline-block;
-	width: 20%;
-	text-align: center;
-	font-weight: 700;
-	color: #444;
-}
-
-.new-item-info .form-input {
-	width: 80%;
-	padding: 7px;
-	font-size: 16px;
-	background: transparent;
-	border: 1px solid #ccc;
-	font-family: var(--main-font);
-}
-
-.new-item-info .form-input:focus {
-	border: none;
-	outline: 2px solid var(--main-color);
-}
-
-.new-item-info input {
-	height: 35px;
-}
-
-.new-item-info input#image,
-.new-item-info input#image:focus {
-	border: none;
-	outline: none;
-}
-
-.new-item-info textarea {
-	height: 110px;
-}
-
-.new-item-info #category option:first-child {
-	color: #aaa;
-}
-
-.new-item .submit-btn {
+.submit-btn {
 	position: absolute;
 	bottom: 0;
 }
