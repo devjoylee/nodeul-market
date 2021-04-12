@@ -14,7 +14,7 @@ export interface iItemDetail {
 	name: string;
 	category: string;
 	price: number;
-	amount: number;
+	quantity: number;
 	image?: string;
 	description: string;
 }

@@ -37,7 +37,7 @@ export function Item({ item, addToCart }: ItemProps) {
 							<span className={colorizeCategory()}>{item.category}</span>
 						</li>
 						<li className="name">{item.name}</li>
-						<li className="stock">stock : {item.amount}</li>
+						<li className="stock">stock : {item.quantity}</li>
 						<li className="description">{item.description}</li>
 						<li className="price">￦{item.price}</li>
 					</ul>

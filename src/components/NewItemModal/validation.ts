@@ -3,7 +3,7 @@ import { iItemDetail } from "../../App";
 export type ErrorMessage = {
 	name?: string;
 	category?: string;
-	amount?: string;
+	quantity?: string;
 };
 
 export default function validate(values: iItemDetail) {
@@ -19,9 +19,9 @@ export default function validate(values: iItemDetail) {
 		errors.category = "you should select a category.";
 	}
 
-	// amount
-	if (!values.amount) {
-		errors.amount = "you should put the number of items.";
+	// quantity
+	if (!values.quantity) {
+		errors.quantity = "you should put the number of items.";
 	}
 
 	return errors;

@@ -10,9 +10,7 @@ export function MainBanner({ toggleModal }: MainBannerProps) {
 			<p className="main-banner__text">
 				Are you sick of wasting food? <br />
 				Feel free to share your extra groceries.
-				<br />
-				<br />
-				Join to stop waste and save our earth :)
+				<span>Join to stop waste and save our earth :)</span>
 			</p>
 
 			<button className="main-banner__btn" onClick={() => toggleModal()}>

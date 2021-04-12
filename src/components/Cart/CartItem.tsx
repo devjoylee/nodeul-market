@@ -8,26 +8,26 @@ interface CartItemProps {
 }
 
 export function CartItem({ item, removeFromCart }: CartItemProps) {
-	const [amount, setAmount] = useState(1);
+	const [quantity, setQuantity] = useState(1);
 
 	// 버튼 클릭 시, 아이템 개수 감소 -> 최소 수량 0
-	const decreaseAmount = () => {
-		if (amount <= 0) {
+	const decreaseQuantity = () => {
+		if (quantity <= 0) {
 			return;
 		} else {
-			setAmount(amount - 1);
+			setQuantity(quantity - 1);
 		}
 	};
 
 	// 버튼 클릭 시, 아이템 개수 증가 -> 최대 수량 (아이템 재고)
-	const increaseAmount = () => {
-		if (amount >= item.amount) {
+	const increaseQuantity = () => {
+		if (quantity >= item.quantity) {
 			alert(
-				`Sorry, You’ve reached the maximum order 😥 (Current stock: ${item.amount})`
+				`Sorry, You’ve reached the maximum order 😥 (Current stock: ${item.quantity})`
 			);
 			return;
 		}
-		setAmount(amount + 1);
+		setQuantity(quantity + 1);
 	};
 
 	return (
@@ -35,14 +35,14 @@ export function CartItem({ item, removeFromCart }: CartItemProps) {
 			<div className="cart-info-wrapper">
 				<ul className="cart-info">
 					<li className="name">{item.name}</li>
-					<li className="amount">current stock : {item.amount}</li>
+					<li className="quantity">current stock : {item.quantity}</li>
 					<li className="price">
-						￦{item.price * amount} <span>(￦{item.price} per item)</span>
+						￦{item.price * quantity} <span>(￦{item.price} per item)</span>
 					</li>
-					<div className="amount-controller">
-						<button onClick={() => decreaseAmount()}>-</button>
-						<span>{amount}</span>
-						<button onClick={() => increaseAmount()}>+</button>
+					<div className="quantity-controller">
+						<button onClick={() => decreaseQuantity()}>-</button>
+						<span>{quantity}</span>
+						<button onClick={() => increaseQuantity()}>+</button>
 					</div>
 				</ul>
 				<div className="image-box">

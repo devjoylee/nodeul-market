@@ -85,7 +85,7 @@ export function NewItemModal({
 									onChange={handleChange}
 								>
 									<option value="default" disabled hidden>
-										-- what kind of item do you want to add ? --
+										-- select an item group --
 									</option>
 									<option value="fruit">Fruit</option>
 									<option value="dairy">Dairy Products</option>
@@ -97,18 +97,18 @@ export function NewItemModal({
 							</div>
 						</div>
 						<div className="form-item">
-							<label htmlFor="amount">Amount</label>
+							<label htmlFor="quantity">Quantity</label>
 							<div className="input-wrapper">
 								<input
 									type="text"
-									id="amount"
-									name="amount"
-									value={values.amount}
+									id="quantity"
+									name="quantity"
+									value={values.quantity}
 									onChange={handleChange}
-									placeholder="How many do you want to sell?"
+									placeholder="Enter the number of items"
 									className="item-input"
 								/>
-								{errors.amount && <p className="error">{errors.amount}</p>}
+								{errors.quantity && <p className="error">{errors.quantity}</p>}
 							</div>
 						</div>
 						<div className="form-item">
@@ -122,7 +122,7 @@ export function NewItemModal({
 									name="price"
 									value={values.price}
 									onChange={handleChange}
-									placeholder="How much do you charge for this item?"
+									placeholder="Enter the cost of an item"
 									className="item-input"
 								/>
 							</div>
