@@ -1,7 +1,6 @@
 import React from "react";
 import type { iItemDetail } from "../../App";
 import { MdAddShoppingCart } from "react-icons/md";
-import { useImage } from "../NewItemModal/useImage";
 
 interface ItemProps {
 	item: iItemDetail;
@@ -9,8 +8,6 @@ interface ItemProps {
 }
 
 export function Item({ item, addToCart }: ItemProps) {
-	const { preview } = useImage();
-
 	const colorizeCategory = () => {
 		switch (item.category) {
 			case "fruit":
@@ -33,11 +30,7 @@ export function Item({ item, addToCart }: ItemProps) {
 			<div className="item">
 				<div>
 					<div className="image-box">
-						<img
-							src={preview ? preview : item.image}
-							alt={item.name}
-							className="thumbnail"
-						/>
+						<img src={item.image} alt={item.name} className="thumbnail" />
 					</div>
 					<ul className="item__detail">
 						<li className="category">

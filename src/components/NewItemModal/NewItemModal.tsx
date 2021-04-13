@@ -9,13 +9,13 @@ import { useImage } from "./useImage";
 interface NewItemModalProps {
 	openModal: boolean;
 	toggleModal: () => void;
-	saveDetails: (newItem: iItemDetail) => void;
+	addToInventory: (newItem: iItemDetail) => void;
 }
 
 export function NewItemModal({
 	openModal,
 	toggleModal,
-	saveDetails,
+	addToInventory,
 }: NewItemModalProps) {
 	const { values, handleChange, handleResetForm } = useForm();
 	const [errors, setErrors] = useState({} as ErrorMessage);
@@ -36,15 +36,21 @@ export function NewItemModal({
 	};
 
 	// 폼 input이 모두 입력된 경우 submit
-	const addToInventory = async (e: React.MouseEvent<HTMLButtonElement>) => {
+	const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
 
 		const error = await validate(values);
 		const hasInvaild = Object.keys(error).length;
 		setErrors(error);
 
+		// store the uploaded image
+		if (preview) {
+			values.image = preview;
+		}
+
+		// if all vaildation is passed, add to inventory
 		if (!hasInvaild) {
-			saveDetails(values);
+			addToInventory(values);
 			closeModal();
 		}
 	};
@@ -180,7 +186,7 @@ export function NewItemModal({
 							type="submit"
 							className="submit-btn btn"
 							onClick={(e) => {
-								addToInventory(e);
+								handleSubmit(e);
 							}}
 						>
 							<IoBagAddOutline />
