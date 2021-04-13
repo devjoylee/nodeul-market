@@ -26,6 +26,10 @@ export function NewItemModal({
 
 	// 폼 리셋후 모달 close
 	const closeModal = () => {
+		const select = document.getElementById("category") as HTMLSelectElement;
+
+		select.selectedIndex = 0; // select option reset
+		handleRemoveImage(); // image reset
 		handleResetForm(); // form value reset
 		setErrors({}); // error reset
 		toggleModal(); // close modal
@@ -100,7 +104,7 @@ export function NewItemModal({
 							<label htmlFor="quantity">Quantity</label>
 							<div className="input-wrapper">
 								<input
-									type="text"
+									type="number"
 									id="quantity"
 									name="quantity"
 									value={values.quantity}
@@ -117,7 +121,7 @@ export function NewItemModal({
 							</label>
 							<div className="input-wrapper">
 								<input
-									type="text"
+									type="number"
 									id="price"
 									name="price"
 									value={values.price}

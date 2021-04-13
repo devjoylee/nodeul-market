@@ -5,8 +5,8 @@ export const useForm = () => {
 		id: Date.now(),
 		name: "",
 		category: "",
-		quantity: 0,
-		price: 0,
+		quantity: "",
+		price: "",
 		image:
 			"http://autosdutriomphe.fr/wp-content/uploads/2018/04/default-image.png",
 		description: "",

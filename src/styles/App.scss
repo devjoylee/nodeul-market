@@ -207,14 +207,14 @@ body {
 	display: inline-block;
 	font-size: 16px;
 	padding: 10px 20px;
-	color: #333;
+	color: darken($main-color, 7%);
 	text-decoration: none;
 	border: solid 5px $main-color;
 	box-shadow: 10px 10px 0 -5px $main-color;
 	transition: 0.3s;
 	overflow: hidden;
 	letter-spacing: 1px;
-	font-weight: 400;
+	font-weight: 600;
 	font-family: $main-font;
 
 	&::before {
@@ -588,7 +588,7 @@ body {
 	color: #aaa;
 }
 
-.amount-controller {
+.quantity-controller {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -598,7 +598,7 @@ body {
 	border-radius: 5px;
 }
 
-.amount-controller button {
+.quantity-controller button {
 	width: 25px;
 	height: 25px;
 	font-size: 16px;
@@ -607,7 +607,7 @@ body {
 	color: #fff;
 }
 
-.amount-controller button.blocked {
+.quantity-controller button.blocked {
 	background-color: #ccc;
 }
 

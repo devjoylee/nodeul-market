@@ -13,8 +13,8 @@ export interface iItemDetail {
 	id: number;
 	name: string;
 	category: string;
-	price: number;
-	quantity: number;
+	price: number | any;
+	quantity: number | any;
 	image?: string;
 	description: string;
 }
