@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "../Container";
 import type { iItemDetail } from "../../App";
 import { Item } from "./Item";
@@ -9,11 +9,14 @@ interface InventoryProps {
 }
 
 export function Inventory({ inventoryItems, addToCart }: InventoryProps) {
+	const allItems = inventoryItems;
+	const [filter, setFilter] = useState([] as iItemDetail[]);
+
 	const filterByCategory = (
 		e: React.MouseEvent<HTMLParagraphElement, MouseEvent>
 	) => {
 		const selected = e.currentTarget.id;
-		console.log(selected);
+		setFilter(inventoryItems.filter((item) => item.category === selected));
 	};
 
 	return (
