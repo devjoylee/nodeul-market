@@ -37,7 +37,7 @@ export function CartItem({ item, removeFromCart }: CartItemProps) {
 					<li className="name">{item.name}</li>
 					<li className="quantity">current stock : {item.quantity}</li>
 					<li className="price">
-						￦{item.price * quantity} <span>(￦{item.price} per item)</span>
+						${item.price * quantity} <span>(${item.price} per item)</span>
 					</li>
 					<div className="quantity-controller">
 						<button onClick={() => decreaseQuantity()}>-</button>

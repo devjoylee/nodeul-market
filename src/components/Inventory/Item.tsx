@@ -39,7 +39,7 @@ export function Item({ item, addToCart }: ItemProps) {
 						<li className="name">{item.name}</li>
 						<li className="stock">stock : {item.quantity}</li>
 						<li className="description">{item.description}</li>
-						<li className="price">￦{item.price}</li>
+						<li className="price">${item.price}</li>
 					</ul>
 				</div>
 				<button className="item__addbtn btn" onClick={() => addToCart(item)}>
